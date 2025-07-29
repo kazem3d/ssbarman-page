@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سانیار صنعت بارمان - تولید و تأمین تجهیزات راهداری</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a9c67; /* Green Phantom */
+            --primary-dark: #147a52;
+            --primary-light: #26c28e;
+            --neutral-white: #ffffff;
+            --neutral-light: #f5f7fa;
+            --neutral-gray: #6c757d;
+            --neutral-dark: #343a40;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            line-height: 1.8;
+            color: var(--neutral-dark);
+            background-color: var(--neutral-white);
+            direction: rtl;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--neutral-white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--neutral-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--neutral-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--neutral-light);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--neutral-gray);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--neutral-white);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--neutral-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: var(--neutral-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background-color: var(--neutral-light);
+            padding: 2rem;
+            border-radius: 8px;
+            border-right: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .service-item:hover {
+            background-color: var(--neutral-white);
+            box-shadow: var(--shadow);
+        }
+
+        .service-item h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            background-color: var(--primary-color);
+            color: var(--neutral-white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-text p, .contact-text a {
+            color: var(--neutral-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-text a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background-color: var(--neutral-light);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--neutral-dark);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 156, 103, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--neutral-white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--neutral-dark);
+            color: var(--neutral-light);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--neutral-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: var(--neutral-white);
+                width: 100%;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 1rem 0;
+                border-radius: 8px;
+                margin-top: 0.5rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">سانیار صنعت بارمان</div>
+                <ul class="nav-links">
+                    <li><a href="#about">معرفی شرکت</a></li>
+                    <li><a href="#products">محصولات</a></li>
+                    <li><a href="#services">خدمات</a></li>
+                    <li><a href="#contact">تماس با ما</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>تولید و تأمین تجهیزات ایمنی راه  </h1>
+            <p>شرکت سانیار صنعت بارمان با استفاده از فناوری روز و نیروی متخصص، محصولات باکیفیت در حوزه تجهیزات جاده ای و شهری تولید و عرضه می‌کند.</p>
+            <a href="#contact" class="cta-button">درخواست همکاری</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">معرفی شرکت</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>درباره سانیار صنعت بارمان</h3>
+                    <p>شرکت سانیار صنعت بارمان با بهره‌گیری از نیروهای متخصص و مجرب در زمینه تولید تجهیزات راه و شهری، از سال ۱۳۹۰ فعالیت خود را آغاز کرده است. ما با استفاده از فناوری‌های روز دنیا و رعایت استانداردهای کیفی، محصولات باکیفیتی را در سطح کشور عرضه می‌کنیم.</p>
+                    <p>ماموریت ما تولید محصولات با کیفیت بالا، رعایت استانداردهای ایمنی و ارائه خدمات پس از فروش مطلوب به مشتریان عزیز است. تیم حرفه‌ای ما آماده همکاری با پیمانکاران، شهرداری‌ها و سازمان‌های مرتبط است.</p>
+                    <p>ما به کیفیت، دوام و ایمنی محصولات خود افتخار می‌کنیم و همواره در تلاش هستیم تا با استفاده از مواد اولیه مرغوب و فرآیندهای تولید پیشرفته، نیازهای مشتریان خود را به بهترین شکل ممکن برآورده کنیم.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://placehold.co/600x400/e6f7f1/1a9c67?text=تولید+تجهیزات+راه" alt="تولید تجهیزات راه">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">محصولات</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x300/e6f7f1/1a9c67?text=علائم+راهنمایی" alt="علائم راهنمایی و رانندگی">
+                    </div>
+                    <div class="product-info">
+                        <h3>علائم راهنمایی و رانندگی</h3>
+                        <p>تولید علائم ترافیکی با استانداردهای ملی و بین‌المللی، با مواد با دوام و بازتابنده نور مناسب برای افزایش ایمنی در شب و روز.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x300/e6f7f1/1a9c67?text=محدودکننده+نیوجرسی" alt="محدودکننده نیوجرسی">
+                    </div>
+                    <div class="product-info">
+                        <h3>حفاظ بتی نیوجرسی</h3>
+                        <p>تامین محدودکننده‌های نیوجرسی با بتن با کیفیت بالا و طراحی مهندسی دقیق برای کنترل ترافیک و ایمنی راه‌ها.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x300/e6f7f1/1a9c67?text=پل+پیاده" alt="پل پیاده رو">
+                    </div>
+                    <div class="product-info">
+                        <h3>پل‌های عبور عابر</h3>
+                        <p>طراحی و ساخت پل‌های پیاده‌رو با استانداردهای ایمنی بالا و زیبایی بصری مناسب برای محیط‌های شهری.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x300/e6f7f1/1a9c67?text=نرده+دستگیره" alt="نرده و دستگیره">
+                    </div>
+                    <div class="product-info">
+                        <h3>نرده و هندریل</h3>
+                        <p>تولید نرده‌ها و هندریل فلزی با استانداردهای ایمنی و مقاوم در برابر شرایط آب و هوایی مختلف.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://placehold.co/400x300/e6f7f1/1a9c67?text=بشکه+ایمنی" alt="بشکه ایمنی">
+                    </div>
+                    <div class="product-info">
+                        <h3>بشکه‌های ایمنی</h3>
+                        <p>عرضه بشکه‌های ایمنی ترافیکی با جنس مقاوم و رنگ‌های بازتابنده برای افزایش دید و ایمنی در معابر و پروژه‌های عمرانی.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">خدمات</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3>تولید سفارشی</h3>
+                    <p>با توجه به نیازهای خاص پروژه‌های شما، محصولات را به صورت سفارشی و متناسب با شرایط محلی تولید می‌کنیم. این امکان به شما این توانایی را می‌دهد تا دقیقاً محصولات مورد نیاز خود را با ابعاد، رنگ و ویژگی‌های خاص دریافت کنید.</p>
+                </div>
+                <div class="service-item">
+                    <h3>خدمات پیمانکاری</h3>
+                    <p>ارائه خدمات جامع پیمانکاری شامل نصب، راه‌اندازی و اجرای تجهیزات راه و شهری با تیم متخصص و تجهیزات مدرن. ما از مرحله برنامه‌ریزی تا تحویل نهایی پروژه همراه شما هستیم.</p>
+                </div>
+                <div class="service-item">
+                    <h3>مشاوره فنی</h3>
+                    <p>تیم متخصص ما آماده ارائه مشاوره فنی در زمینه انتخاب تجهیزات مناسب، طراحی محل نصب و رعایت استانداردهای ایمنی است. مشاوره ما به شما کمک می‌کند تا بهترین تصمیم را برای پروژه خود بگیرید.</p>
+                </div>
+                <div class="service-item">
+                    <h3>نگهداری و تعمیر</h3>
+                    <p>ارائه خدمات نگهداری دوره‌ای و تعمیر تجهیزات راه و شهری برای افزایش عمر مفید محصولات و کاهش هزینه‌های جایگزینی. برنامه‌های نگهداری ما به صورت سفارشی برای هر پروژه طراحی می‌شوند.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">تماس با ما</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">🏢</div>
+                        <div class="contact-text">
+                            <h4>دفتر</h4>
+                            <p>اراک، خیابان قائم مقام فراهانی، کوچه رضوان، پلاک ۳۱</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🏭</div>
+                        <div class="contact-text">
+                            <h4>کارخانه</h4>
+                            <p>اراک، شهرک صنعتی حاجی آباد، خیابان صنعت، خیابان پامچال</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <h4>شماره تماس</h4>
+                            <a href="tel:09182529053">۰۹۱۸۲۵۲۹۰۵۳</a>
+                            <br>
+                            <a href="tel:08633283100">۰۸۶۳۳۲۸۳۱۰۰</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-text">
+                            <h4>واتساپ</h4>
+                            <a href="https://wa.me/989182529053" target="_blank">ارسال پیام در واتساپ</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <h4>ایمیل</h4>
+                            <a href="mailto:rezaghanaty@gmail.com">info@ssbarman.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">نام و نام خانوادگی</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">شماره تماس</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">پیام شما</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">ارسال پیام</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">سانیار صنعت بارمان</div>
+                <div class="footer-links">
+                    <a href="#about">معرفی شرکت</a>
+                    <a href="#products">محصولات</a>
+                    <a href="#services">خدمات</a>
+                    <a href="#contact">تماس با ما</a>
+                </div>
+                <p class="copyright">© 1404 شرکت سانیار صنعت بارمان. تمامی حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu when link is clicked
+                navLinks.classList.remove('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server
+            // For this static version, we'll just show an alert
+            alert('پیام شما با موفقیت ارسال شد. در اسرع وقت با شما تماس خواهیم گرفت.');
+            contactForm.reset();
+        });
+
+        // Add scroll animation to sections
+        const sections = document.querySelectorAll('section');
+        
+        const revealSection = function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        const sectionObserver = new IntersectionObserver(revealSection, {
+            root: null,
+            threshold: 0.15
+        });
+        
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            sectionObserver.observe(section);
+        });
+    </script>
+</body>
+</html>
