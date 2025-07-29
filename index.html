@@ -25,7 +25,7 @@
         }
 
         body {
-            font-family: 'Vazirmatn', sans-serif;
+            font-family: 'Cairo', sans-serif;
             line-height: 1.8;
             color: var(--neutral-dark);
             background-color: var(--neutral-white);
@@ -85,7 +85,7 @@
             content: '';
             position: absolute;
             bottom: 0;
-            right: 0;
+            left: 0;
             width: 0;
             height: 2px;
             background-color: var(--primary-color);
@@ -105,24 +105,45 @@
             color: var(--neutral-dark);
         }
 
-        /* Hero Section */
+        /* Hero Section with Background Image */
         .hero {
-            background-color: var(--neutral-light);
-            padding: 120px 0 80px;
+            background-image: url('./images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 150px 0 100px;
             text-align: center;
+            color: var(--neutral-white);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Overlay to improve text readability */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--neutral-gray);
+            font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .cta-button {
@@ -136,11 +157,13 @@
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .cta-button:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         /* Section Styles */
@@ -161,8 +184,8 @@
             content: '';
             position: absolute;
             bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
+            left: 50%;
+            transform: translateX(-50%);
             width: 80px;
             height: 3px;
             background-color: var(--primary-color);
@@ -263,7 +286,7 @@
             background-color: var(--neutral-light);
             padding: 2rem;
             border-radius: 8px;
-            border-right: 4px solid var(--primary-color);
+            border-left: 4px solid var(--primary-color);
             transition: var(--transition);
         }
 
@@ -351,7 +374,7 @@
             padding: 0.8rem 1rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-family: 'Vazirmatn', sans-serif;
+            font-family: 'Cairo', sans-serif;
             font-size: 1rem;
             transition: var(--transition);
         }
@@ -434,7 +457,7 @@
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
         }
 
@@ -444,7 +467,7 @@
                 flex-direction: column;
                 position: absolute;
                 top: 100%;
-                right: 0;
+                left: 0;
                 background-color: var(--neutral-white);
                 width: 100%;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -462,15 +485,16 @@
             }
 
             .hero {
-                padding: 100px 0 60px;
+                padding: 120px 0 80px;
+                background-attachment: scroll;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             section {
@@ -520,7 +544,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="hero-content">
             <h1>تولید و تأمین تجهیزات ایمنی راه  </h1>
             <p>شرکت سانیار صنعت بارمان با استفاده از فناوری روز و نیروی متخصص، محصولات باکیفیت در حوزه تجهیزات جاده ای و شهری تولید و عرضه می‌کند.</p>
             <a href="#contact" class="cta-button">درخواست همکاری</a>
