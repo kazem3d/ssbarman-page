@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سانیار صنعت بارمان - تولید و تأمین تجهیزات راهداری</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #1a9c67; /* Green Phantom */
+            --primary-color: #1a9c67;
+            /* Green Phantom */
             --primary-dark: #147a52;
             --primary-light: #26c28e;
             --neutral-white: #ffffff;
@@ -105,45 +109,56 @@
             color: var(--neutral-dark);
         }
 
-        /* Hero Section with Background Image */
+        /* Hero Section with Background Video */
         .hero {
-            background-image: url('./images/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 150px 0 100px;
-            text-align: center;
-            color: var(--neutral-white);
             position: relative;
+            height: 80vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
-        .hero::before {
-            content: '';
+        .hero-video {
             position: absolute;
             top: 0;
-            right: 0;
             left: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* Overlay to improve text readability */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
+            color: var(--neutral-white);
+            max-width: 800px;
+            padding: 0 20px;
         }
 
         .hero h1 {
             font-size: 2.8rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .hero p {
             font-size: 1.3rem;
-            max-width: 800px;
             margin: 0 auto 2rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .cta-button {
@@ -342,7 +357,8 @@
             margin-bottom: 0.3rem;
         }
 
-        .contact-text p, .contact-text a {
+        .contact-text p,
+        .contact-text a {
             color: var(--neutral-gray);
             text-decoration: none;
             transition: var(--transition);
@@ -455,7 +471,7 @@
                 flex-direction: column;
                 gap: 2rem;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -485,8 +501,8 @@
             }
 
             .hero {
-                padding: 120px 0 80px;
-                background-attachment: scroll;
+                height: 70vh;
+                min-height: 500px;
             }
 
             .hero h1 {
@@ -525,6 +541,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -544,11 +561,20 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="./images/video.mp4" type="video/mp4">
+            <!-- Fallback image if video doesn't load -->
+            <img src="./images/hero.jpg" alt="مصنع سانيار صنعت بارمان">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>تولید و تأمین تجهیزات ایمنی راه  </h1>
-            <p>شرکت سانیار صنعت بارمان با استفاده از فناوری روز و نیروی متخصص، محصولات باکیفیت در حوزه تجهیزات جاده ای و شهری تولید و عرضه می‌کند.</p>
+            <h1>تولید و تأمین تجهیزات ایمنی راه </h1>
+            <p>شرکت سانیار صنعت بارمان با استفاده از فناوری روز و نیروی متخصص، محصولات باکیفیت در حوزه تجهیزات جاده ای و
+                شهری تولید و عرضه می‌کند.</p>
             <a href="#contact" class="cta-button">درخواست همکاری</a>
         </div>
+
+
     </section>
 
     <!-- About Section -->
@@ -558,12 +584,19 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>درباره سانیار صنعت بارمان</h3>
-                    <p>شرکت سانیار صنعت بارمان با بهره‌گیری از نیروهای متخصص و مجرب در زمینه تولید تجهیزات راه و شهری، از سال ۱۳۹۰ فعالیت خود را آغاز کرده است. ما با استفاده از فناوری‌های روز دنیا و رعایت استانداردهای کیفی، محصولات باکیفیتی را در سطح کشور عرضه می‌کنیم.</p>
-                    <p>ماموریت ما تولید محصولات با کیفیت بالا، رعایت استانداردهای ایمنی و ارائه خدمات پس از فروش مطلوب به مشتریان عزیز است. تیم حرفه‌ای ما آماده همکاری با پیمانکاران، شهرداری‌ها و سازمان‌های مرتبط است.</p>
-                    <p>ما به کیفیت، دوام و ایمنی محصولات خود افتخار می‌کنیم و همواره در تلاش هستیم تا با استفاده از مواد اولیه مرغوب و فرآیندهای تولید پیشرفته، نیازهای مشتریان خود را به بهترین شکل ممکن برآورده کنیم.</p>
+                    <p>شرکت سانیار صنعت بارمان با بهره‌گیری از نیروهای متخصص و مجرب در زمینه تولید تجهیزات راه و شهری،
+                        از سال ۱۳۹۰ فعالیت خود را آغاز کرده است. ما با استفاده از فناوری‌های روز دنیا و رعایت
+                        استانداردهای کیفی، محصولات باکیفیتی را در سطح کشور عرضه می‌کنیم.</p>
+                    <p>ماموریت ما تولید محصولات با کیفیت بالا، رعایت استانداردهای ایمنی و ارائه خدمات پس از فروش مطلوب
+                        به مشتریان عزیز است. تیم حرفه‌ای ما آماده همکاری با پیمانکاران، شهرداری‌ها و سازمان‌های مرتبط
+                        است.</p>
+                    <p>ما به کیفیت، دوام و ایمنی محصولات خود افتخار می‌کنیم و همواره در تلاش هستیم تا با استفاده از مواد
+                        اولیه مرغوب و فرآیندهای تولید پیشرفته، نیازهای مشتریان خود را به بهترین شکل ممکن برآورده کنیم.
+                    </p>
                 </div>
                 <div class="about-image">
-                    <img src="https://placehold.co/600x400/e6f7f1/1a9c67?text=تولید+تجهیزات+راه" alt="تولید تجهیزات راه">
+                    <img src="./images/main.webp"
+                        alt="تولید تجهیزات راه">
                 </div>
             </div>
         </div>
@@ -576,47 +609,54 @@
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://placehold.co/400x300/e6f7f1/1a9c67?text=علائم+راهنمایی" alt="علائم راهنمایی و رانندگی">
+                        <img src="./images/tablo.webp"
+                            alt="علائم راهنمایی و رانندگی">
                     </div>
                     <div class="product-info">
                         <h3>علائم راهنمایی و رانندگی</h3>
-                        <p>تولید علائم ترافیکی با استانداردهای ملی و بین‌المللی، با مواد با دوام و بازتابنده نور مناسب برای افزایش ایمنی در شب و روز.</p>
+                        <p>تولید علائم ترافیکی با استانداردهای ملی و بین‌المللی، با مواد با دوام و بازتابنده نور مناسب
+                            برای افزایش ایمنی در شب و روز.</p>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://placehold.co/400x300/e6f7f1/1a9c67?text=محدودکننده+نیوجرسی" alt="محدودکننده نیوجرسی">
+                        <img src="./images/newjercy.webp"
+                            alt="محدودکننده نیوجرسی">
                     </div>
                     <div class="product-info">
                         <h3>حفاظ بتی نیوجرسی</h3>
-                        <p>تامین محدودکننده‌های نیوجرسی با بتن با کیفیت بالا و طراحی مهندسی دقیق برای کنترل ترافیک و ایمنی راه‌ها.</p>
+                        <p>تامین محدودکننده‌های نیوجرسی با بتن با کیفیت بالا و طراحی مهندسی دقیق برای کنترل ترافیک و
+                            ایمنی راه‌ها.</p>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://placehold.co/400x300/e6f7f1/1a9c67?text=پل+پیاده" alt="پل پیاده رو">
+                        <img src="./images/pol.webp" alt="پل پیاده رو">
                     </div>
                     <div class="product-info">
                         <h3>پل‌های عبور عابر</h3>
-                        <p>طراحی و ساخت پل‌های پیاده‌رو با استانداردهای ایمنی بالا و زیبایی بصری مناسب برای محیط‌های شهری.</p>
+                        <p>طراحی و ساخت پل‌های پیاده‌رو با استانداردهای ایمنی بالا و زیبایی بصری مناسب برای محیط‌های
+                            شهری.</p>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://placehold.co/400x300/e6f7f1/1a9c67?text=نرده+دستگیره" alt="نرده و دستگیره">
+                        <img src="./images/handrail.webp" alt="نرده و دستگیره">
                     </div>
                     <div class="product-info">
                         <h3>نرده و هندریل</h3>
-                        <p>تولید نرده‌ها و هندریل فلزی با استانداردهای ایمنی و مقاوم در برابر شرایط آب و هوایی مختلف.</p>
+                        <p>تولید نرده‌ها و هندریل فلزی با استانداردهای ایمنی و مقاوم در برابر شرایط آب و هوایی مختلف.
+                        </p>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://placehold.co/400x300/e6f7f1/1a9c67?text=بشکه+ایمنی" alt="بشکه ایمنی">
+                        <img src="./images/barel.webp" alt="بشکه ایمنی">
                     </div>
                     <div class="product-info">
                         <h3>بشکه‌های ایمنی</h3>
-                        <p>عرضه بشکه‌های ایمنی ترافیکی با جنس مقاوم و رنگ‌های بازتابنده برای افزایش دید و ایمنی در معابر و پروژه‌های عمرانی.</p>
+                        <p>عرضه بشکه‌های ایمنی ترافیکی با جنس مقاوم و رنگ‌های بازتابنده برای افزایش دید و ایمنی در معابر
+                            و پروژه‌های عمرانی.</p>
                     </div>
                 </div>
             </div>
@@ -630,19 +670,25 @@
             <div class="services-list">
                 <div class="service-item">
                     <h3>تولید سفارشی</h3>
-                    <p>با توجه به نیازهای خاص پروژه‌های شما، محصولات را به صورت سفارشی و متناسب با شرایط محلی تولید می‌کنیم. این امکان به شما این توانایی را می‌دهد تا دقیقاً محصولات مورد نیاز خود را با ابعاد، رنگ و ویژگی‌های خاص دریافت کنید.</p>
+                    <p>با توجه به نیازهای خاص پروژه‌های شما، محصولات را به صورت سفارشی و متناسب با شرایط محلی تولید
+                        می‌کنیم. این امکان به شما این توانایی را می‌دهد تا دقیقاً محصولات مورد نیاز خود را با ابعاد، رنگ
+                        و ویژگی‌های خاص دریافت کنید.</p>
                 </div>
                 <div class="service-item">
                     <h3>خدمات پیمانکاری</h3>
-                    <p>ارائه خدمات جامع پیمانکاری شامل نصب، راه‌اندازی و اجرای تجهیزات راه و شهری با تیم متخصص و تجهیزات مدرن. ما از مرحله برنامه‌ریزی تا تحویل نهایی پروژه همراه شما هستیم.</p>
+                    <p>ارائه خدمات جامع پیمانکاری شامل نصب، راه‌اندازی و اجرای تجهیزات راه و شهری با تیم متخصص و تجهیزات
+                        مدرن. ما از مرحله برنامه‌ریزی تا تحویل نهایی پروژه همراه شما هستیم.</p>
                 </div>
                 <div class="service-item">
                     <h3>مشاوره فنی</h3>
-                    <p>تیم متخصص ما آماده ارائه مشاوره فنی در زمینه انتخاب تجهیزات مناسب، طراحی محل نصب و رعایت استانداردهای ایمنی است. مشاوره ما به شما کمک می‌کند تا بهترین تصمیم را برای پروژه خود بگیرید.</p>
+                    <p>تیم متخصص ما آماده ارائه مشاوره فنی در زمینه انتخاب تجهیزات مناسب، طراحی محل نصب و رعایت
+                        استانداردهای ایمنی است. مشاوره ما به شما کمک می‌کند تا بهترین تصمیم را برای پروژه خود بگیرید.
+                    </p>
                 </div>
                 <div class="service-item">
                     <h3>نگهداری و تعمیر</h3>
-                    <p>ارائه خدمات نگهداری دوره‌ای و تعمیر تجهیزات راه و شهری برای افزایش عمر مفید محصولات و کاهش هزینه‌های جایگزینی. برنامه‌های نگهداری ما به صورت سفارشی برای هر پروژه طراحی می‌شوند.</p>
+                    <p>ارائه خدمات نگهداری دوره‌ای و تعمیر تجهیزات راه و شهری برای افزایش عمر مفید محصولات و کاهش
+                        هزینه‌های جایگزینی. برنامه‌های نگهداری ما به صورت سفارشی برای هر پروژه طراحی می‌شوند.</p>
                 </div>
             </div>
         </div>
@@ -733,7 +779,7 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
@@ -742,13 +788,13 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 // Close mobile menu when link is clicked
                 navLinks.classList.remove('active');
-                
+
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
+
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
@@ -760,9 +806,9 @@
 
         // Form submission
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // In a real implementation, you would send the form data to a server
             // For this static version, we'll just show an alert
             alert('پیام شما با موفقیت ارسال شد. در اسرع وقت با شما تماس خواهیم گرفت.');
@@ -771,8 +817,8 @@
 
         // Add scroll animation to sections
         const sections = document.querySelectorAll('section');
-        
-        const revealSection = function(entries, observer) {
+
+        const revealSection = function (entries, observer) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = 1;
@@ -780,12 +826,12 @@
                 }
             });
         };
-        
+
         const sectionObserver = new IntersectionObserver(revealSection, {
             root: null,
             threshold: 0.15
         });
-        
+
         sections.forEach(section => {
             section.style.opacity = 0;
             section.style.transform = 'translateY(30px)';
@@ -794,4 +840,5 @@
         });
     </script>
 </body>
+
 </html>
